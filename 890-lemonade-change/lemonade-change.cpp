@@ -22,7 +22,7 @@ public:
                 if (count[0] == 0)
                     return false;
                 else if (count[1] == 0)
-                    if (count[0] >= 3)
+                    if (count[0] > 2)
                         count[0] = count[0] - 3;
                     else
                         return false;
