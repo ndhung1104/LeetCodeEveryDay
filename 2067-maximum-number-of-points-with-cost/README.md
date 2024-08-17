@@ -48,3 +48,6 @@ Your final score is 12 - 1 = 11.
 	<li><code>1 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= points[r][c] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+----------------------------------------------------
+So this code will find the local max in each of the row: for example: 1 3 1 will turn into 2 3 2 because in the next row it's better to get 3 and -1 penalty from 3 than 1 without any penalty from 1. 
