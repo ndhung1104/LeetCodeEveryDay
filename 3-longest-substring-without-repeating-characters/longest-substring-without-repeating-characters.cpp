@@ -5,15 +5,16 @@ public:
         int size = s.size();
         int len = 0;
         int end = 0;
-        int ascii[1000]{0};
+        //int ascii[1000]{0};
+        unordered_set<char> ascii;
         while (end < size)
         {
-            if (ascii[s[end]])
+            if (ascii.find(s[end]) != ascii.end()) //ascii[s[end]]
             {
                 len = max(len, end - start);
                 while (s[start] != s[end])
                 {
-                    ascii[s[start]] = 0;
+                    ascii.erase(s[start]); //ascii[s[start]] = 0;
                     start++;
                 }
                 start++;
@@ -21,7 +22,7 @@ public:
             }
             else
             {
-                ascii[s[end]]++;
+                ascii.insert(s[end]); //ascii[s[end]]++;
                 end++;
                 if (end == size)
                 {
