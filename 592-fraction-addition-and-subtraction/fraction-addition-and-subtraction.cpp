@@ -1,14 +1,14 @@
 class Solution {
 public:
-    struct PHANSO
+    struct FRACTION
     {
-        int tu;
-        int mau;
+        int numerator;
+        int denominator;
 
-        PHANSO(int x = 0)
+        FRACTION(int x = 0)
         {
-            this->tu = x;
-            this->mau = 1;
+            this->numerator = x;
+            this->denominator = 1;
         }
 
     };
@@ -24,29 +24,29 @@ public:
         return a;
     }
 
-    void rutGon(PHANSO& p)
+    void simplify(FRACTION& p)
     {
-        int g = gcd(abs(p.tu), abs(p.mau));
+        int g = gcd(abs(p.numerator), abs(p.denominator));
         // int sign = (double(p.tu) / double(p.mau) >= 0) ? 1 : -1;
 
-        p.tu = p.tu / g ;
-        p.mau = p.mau / g;
+        p.numerator = p.numerator  / g ;
+        p.denominator = p.denominator / g;
     }
 
-    PHANSO addPS(PHANSO a, PHANSO b)
+    FRACTION addF(FRACTION a, FRACTION b)
     {
-        PHANSO p;
-        p.tu = a.tu * b.mau + b.tu * a.mau; // tran so
-        p.mau = a.mau * b.mau;
+        FRACTION p;
+        p.numerator = a.numerator * b.denominator + b.numerator * a.denominator; // tran so
+        p.denominator = a.denominator * b.denominator;
 
-        rutGon(p);
+        simplify(p);
 
         return p;
     }
     string fractionAddition(string expression) {
         queue<int> sign;
         string ans;
-        PHANSO sum; 
+        FRACTION sum; 
         if (expression[0] == '-')
         {
             expression[0] = '0';
@@ -65,23 +65,19 @@ public:
                 expression[i] = ',';
             }
         stringstream s(expression);
-        // cout << expression << endl;
         while (sign.size() > 0)
         {
             string num, denom;
             getline(s, num, '/');
             getline(s, denom, ',');
-            PHANSO tmpFraq;
-            tmpFraq.tu = stoi(num) * sign.front();
+            FRACTION tmpFraq;
+            tmpFraq.numerator = stoi(num) * sign.front();
             sign.pop();
-            tmpFraq.mau = stoi(denom);
-            // cout << tmpFraq.tu << "/" << tmpFraq.mau << endl;
-            rutGon(tmpFraq);
-            // cout << tmpFraq.tu << "/" << tmpFraq.mau << endl;
-            sum = addPS(sum, tmpFraq);
-            cout << sum.tu << "/" << sum.mau << endl;
+            tmpFraq.denominator = stoi(denom);
+            simplify(tmpFraq);
+            sum = addF(sum, tmpFraq);
         }
-        ans = to_string(sum.tu) + "/" + to_string(sum.mau);
+        ans = to_string(sum.numerator) + "/" + to_string(sum.denominator);
         return ans;
     }
 };
