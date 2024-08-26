@@ -25,7 +25,8 @@ public:
         if (pRoot)
         {
             for (int i = 0; i < pRoot->children.size(); i++)
-                LRN(pRoot->children[i], a);
+                if (pRoot->children[i])
+                    LRN(pRoot->children[i], a);
             a.push_back(pRoot->val);
         }
     }
