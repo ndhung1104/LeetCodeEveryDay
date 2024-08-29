@@ -63,7 +63,7 @@ public:
 
     }
     int removeStones(vector<vector<int>>& stones) {
-        int xCord[20000]{0}, yCord[20000]{0};
+        // int xCord[20000]{0}, yCord[20000]{0};
         int matrix[1001][1001]{0};
         int n = stones.size();
         int count = 0;
