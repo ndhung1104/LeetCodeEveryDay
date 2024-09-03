@@ -8,6 +8,7 @@ public:
             dP[i] = new int[strLen]{0};
             dP[i][i] = 1;
         }
+        int start = 0, end = 0, maxLen = 1;
 
         for (int col = 1; col < strLen; col++)
             for (int row = 0; row < col; row++)
@@ -23,6 +24,17 @@ public:
                 }
                 else
                     dP[row][col] = 0;
+                
+                if (dP[row][col])
+                {
+                    int tmpLen = col - row + 1;
+                    if (tmpLen > maxLen)
+                    {
+                        start = row;
+                        end = col;
+                        maxLen = tmpLen;
+                    }
+                }
             }   
         
         // for (int i = 0; i < strLen; i++)
@@ -32,25 +44,25 @@ public:
         //     cout << endl;
             
         // }
-        int start = 0, end = 0, maxLen = 1;
+        // int start = 0, end = 0, maxLen = 1;
 
-        for (int i = 0; i < strLen; i++)
-        {
-            for (int j = 0; j < strLen; j++)
-            {
-                if (dP[i][j])
-                {
-                    int tmpLen = j - i + 1;
-                    if (tmpLen > maxLen)
-                    {
-                        start = i;
-                        end = j;
-                        maxLen = tmpLen;
-                    }
-                }
-            }
+        // for (int i = 0; i < strLen; i++)
+        // {
+        //     for (int j = 0; j < strLen; j++)
+        //     {
+        //         if (dP[i][j])
+        //         {
+        //             int tmpLen = j - i + 1;
+        //             if (tmpLen > maxLen)
+        //             {
+        //                 start = i;
+        //                 end = j;
+        //                 maxLen = tmpLen;
+        //             }
+        //         }
+        //     }
             
-        }
+        // }
 
         for (int i = 0; i < strLen; i++)
             delete [] dP[i];
