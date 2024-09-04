@@ -59,7 +59,7 @@ public:
 
         for (int i = 0; i < cmdSize; i++) {
             int cmd = commands[i];
-            cout << xPos << ":" << yPos << " " << xDirection << ":" << yDirection << " " << cmd << endl;
+            // cout << xPos << ":" << yPos << " " << xDirection << ":" << yDirection << " " << cmd << endl;
             if (cmd < 0)
                 changeDirection(xDirection, yDirection, cmd);
             else {
