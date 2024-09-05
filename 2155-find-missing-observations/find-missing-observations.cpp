@@ -12,10 +12,10 @@ public:
         {
             
             int value = (targetSum - currSum) / i;
-            if (value < 1)
-                value = 1;
-            else if (value > 6)
-                value = 6;
+            if (value < 1 || value > 6)
+                return blankResult;
+            // else if (value > 6)
+            //     return blankResult;
             // cout << targetSum << ":" << currSum << " " << value << endl;
             result.push_back(value);
             currSum += value;
