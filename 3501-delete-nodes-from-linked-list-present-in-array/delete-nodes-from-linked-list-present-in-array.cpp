@@ -21,7 +21,7 @@ public:
         pHeadTemp->next = head;
 
         head = pHeadTemp;
-        while (head && head->next)
+        while (head->next)
         {
             if (numsArray[head->next->val])
             {
