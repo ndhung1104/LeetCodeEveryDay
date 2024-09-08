@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canJump(vector<int>& nums) {
         int max = nums[0], size = nums.size();
-        for (int i = 1; i < size && i <= max; i++)
+        for (int i = 1; i < size && i <= max && (max < size - 1); i++)
             if (nums[i] + i > max)
                 max = nums[i] + i;
         
