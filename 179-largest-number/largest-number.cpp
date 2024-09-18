@@ -5,7 +5,7 @@ public:
         string aS = to_string(a);
         string bS = to_string(b);
         string ab = aS + bS, ba = bS + aS;
-        cout << a << " " << b << " " << ab << " " << ba << endl;
+        // cout << a << " " << b << " " << ab << " " << ba << endl;
         for (int i = 0; i < ab.size(); i++)
         {
             if (ab[i] > ba[i])
@@ -24,12 +24,12 @@ public:
         for (int i = 0; i < nums.size(); i++)
         {
             int tmpNum = nums[i];
-            cout << nums[i] << " ";
+            // cout << nums[i] << " ";
             while (tmpNum > 9)
                 tmpNum = tmpNum / 10;
             tmp[tmpNum].push_back(nums[i]);
         }
-        cout << endl;
+        // cout << endl;
 
         for (int i = 9; i >= 0; i--)
         {
@@ -42,10 +42,10 @@ public:
                 }
                 for (int j = 0; j < tmp[i].size(); j++)
                 {
-                    cout << tmp[i][j] << " ";
+                    // cout << tmp[i][j] << " ";
                     ans.push_back(tmp[i][j]);
                 }
-                cout << endl;
+                // cout << endl;
                     
             }   
         }
