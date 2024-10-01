@@ -5,9 +5,9 @@ public:
         vector<int> k_remainder(k, 0);
         for (int i = 0; i < size; i++)
         {
-            int remainder = (arr[i] % k + k) % k;
+            // int remainder = (arr[i] % k + k) % k;
             // cout << remainder << " ";
-            k_remainder[remainder]++;
+            k_remainder[(arr[i] % k + k) % k]++;
         }
         // cout << endl;
         // for (int i = 0; i < k; i++)
