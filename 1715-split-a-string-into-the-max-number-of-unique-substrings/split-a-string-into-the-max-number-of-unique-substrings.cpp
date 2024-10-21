@@ -3,8 +3,8 @@ class Solution {
 public:
     void maxSplitRecursive(string s, int &max, int curr)
     {
-        // if (s.size() + curr < max)
-        //     return -1;
+        if (s.size() + curr < max)
+            return;
 
         if (s.size() == 0)
             if (curr > max)
