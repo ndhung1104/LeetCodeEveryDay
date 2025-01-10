@@ -2,13 +2,13 @@ class Solution {
 public:
     vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
         unordered_set<string> w2List;
-        vector<string> words2RemoveDup;
-        for (int i = 0; i < words2.size(); i++)
-            if (w2List.find(words2[i]) == w2List.end())
-            {
-                words2RemoveDup.push_back(words2[i]);
-                w2List.insert(words2[i]);
-            }
+        vector<string> words2RemoveDup(words2);
+        // for (int i = 0; i < words2.size(); i++)
+        //     if (w2List.find(words2[i]) == w2List.end())
+        //     {
+        //         words2RemoveDup.push_back(words2[i]);
+        //         w2List.insert(words2[i]);
+        //     }
         
         int count2[300]{0};
         vector<string> ans, tmp;
@@ -52,18 +52,18 @@ public:
         //         cout << words1Count[i][k] << " ";
         //     cout << endl;
         //         }
-        for (int i = 0; i < tmp.size(); i++)
-        {
-            bool flag1 = true;
-            for (int j = 0; j < words2RemoveDup.size() && flag1; j++)
-            {
-                for (int k = 'a'; k <= 'z'; k++)
-                    if (words1Count[i][k] < words2Count[j][k])
-                        flag1 = false;
-            }
-            if (flag1)
-                ans.push_back(tmp[i]);
-        }
+        // for (int i = 0; i < tmp.size(); i++)
+        // {
+        //     bool flag1 = true;
+        //     for (int j = 0; j < words2RemoveDup.size() && flag1; j++)
+        //     {
+        //         for (int k = 'a'; k <= 'z'; k++)
+        //             if (words1Count[i][k] < words2Count[j][k])
+        //                 flag1 = false;
+        //     }
+        //     if (flag1)
+        //         ans.push_back(tmp[i]);
+        // }
             
         return ans;
     }
