@@ -12,15 +12,20 @@ class Solution {
         //     }
         // }
         int p1 = 0, p2 = height.length - 1;
-        int ans = Math.min(height[p1], height[p2]) * (p2 - p1);
+        int ans = 0, container = Math.min(height[p1], height[p2]) * (p2 - p1);
         while (p1 < p2) {
-            int container = Math.min(height[p1], height[p2]) * (p2 - p1);
+            // int container = Math.min(height[p1], height[p2]) * (p2 - p1);
             ans = Math.max(ans, container);
-            if (height[p1] > height[p2])
+            if (height[p1] > height[p2]) {
+                container = height[p2] * (p2 - p1);
                 p2--;
-            else
+            }
+            else {
+                container = height[p1] * (p2 - p1);
                 p1++;
+            }
         }
+        ans = Math.max(ans, container);
 
         return ans;
     }
